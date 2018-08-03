@@ -30,7 +30,7 @@ contract SafeMath {
   }
 }
 
-contract MITFC is SafeMath{
+contract MITToken is SafeMath{
     // Public variables of the token
     string public name;
     string public symbol;
@@ -62,15 +62,11 @@ contract MITFC is SafeMath{
      *
      * Initializes contract with initial supply tokens to the creator of the contract
      */
-  constructor (
-        uint256 initialSupply,
-        string tokenName,
-        string tokenSymbol
-    ) public {
-        totalSupply = initialSupply * 10 ** uint256(decimals);  // Update total supply with the decimal amount
+  constructor () public {
+        totalSupply = 10000000000 * 10 ** uint256(decimals);  // Update total supply with the decimal amount
         balanceOf[msg.sender] = totalSupply;                // Give the creator all initial tokens
-        name = tokenName;                                   // Set the name for display purposes
-        symbol = tokenSymbol;                               // Set the symbol for display purposes
+        name = "Mundellian Infrastructure Technology";                                   // Set the name for display purposes
+        symbol = "MIT";                               // Set the symbol for display purposes
         
          owner = msg.sender;
     }
